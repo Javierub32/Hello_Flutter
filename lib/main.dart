@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter/widgets.dart";
 
 void main() => runApp(const MyApp());
 
@@ -28,24 +29,16 @@ class _InicioState extends State<Inicio> {
       appBar: AppBar(
         title: const Text("Hola Mundo"),
       ),
-      body: ListView(
+      body:  Column(
+        mainAxisAlignment: MainAxisAlignment.center, //Se alinea donde queramos
+        mainAxisSize: MainAxisSize.max, //Ocupa el tamaño mínimo/máximo
         children: [
           Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.network("https://www.publico.es/uploads/2019/06/04/5cf67831599d5.jpg"),
+            width: MediaQuery.of(context).size.width,
+            child: Text("Patata")
           ),
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.network("https://www.publico.es/uploads/2019/06/04/5cf67831599d5.jpg"),
-          ),
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.network("https://www.publico.es/uploads/2019/06/04/5cf67831599d5.jpg"),
-          ),
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.network("https://www.publico.es/uploads/2019/06/04/5cf67831599d5.jpg"),
-          ),
+
+          Text("Hola01"),
         ],
       ),
     );
