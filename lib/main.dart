@@ -29,19 +29,27 @@ class _InicioState extends State<Inicio> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Hola Mundo"),
+          backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
+        
       ),
-      body:  Row(
-        mainAxisAlignment: MainAxisAlignment.center, //Se alinea donde queramos
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max, //Ocupa el tamaño mínimo/máximo
-        children: [
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.width *0.5,
-            child: Text("Patata", textAlign: TextAlign.center)
+      body:  Center(
+        child: ElevatedButton(
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.access_alarm_rounded),
+              SizedBox(
+                width: 10,
+              ),
+              Text("Hora? UwU")
+            ],
           ),
-          Text("Constantinopla"),
-        ],
+
+          onPressed: (){
+            var time = DateTime.now();
+             print(time);
+          },
+        ),
       ),
     );
   }
