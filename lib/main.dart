@@ -1,6 +1,8 @@
-import "package:flutter/cupertino.dart";
+// ignore_for_file: unused_import
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
+
+import "package:flutter_application_1/pages/pagina04.dart";
+import 'package:flutter_application_1/pages/pagina05.dart';
 
 void main() => runApp(const MyApp());
 
@@ -32,27 +34,7 @@ class _InicioState extends State<Inicio> {
           backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
         
       ),
-      body:  timeButton(),
+      body:  pagina_05(),
     );
   }
-}  
-
-Widget timeButton(){
-  return Center(
-    child: ElevatedButton(
-      onPressed: (){
-        var time = DateTime.now();
-        // ignore: avoid_print
-        print(time);
-      },
-       child: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.access_alarm),
-          Text("Hora? UwU"),
-        ],
-       ), 
-     ),
-    );
 }
