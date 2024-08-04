@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 
@@ -29,18 +30,19 @@ class _InicioState extends State<Inicio> {
       appBar: AppBar(
         title: const Text("Hola Mundo"),
       ),
-      body:  Column(
+      body:  Row(
         mainAxisAlignment: MainAxisAlignment.center, //Se alinea donde queramos
+        crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisSize: MainAxisSize.max, //Ocupa el tamaño mínimo/máximo
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
-            child: Text("Patata")
+            height: 80,
+            width: MediaQuery.of(context).size.width *0.5,
+            child: Text("Patata", textAlign: TextAlign.center)
           ),
-
-          Text("Hola01"),
+          Text("Constantinopla"),
         ],
       ),
     );
   }
-}
+}  
