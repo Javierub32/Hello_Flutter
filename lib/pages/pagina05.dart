@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 
+//* Este Widget hace un prototipo de Login
 Widget pagina_05(){
   return Container(
     decoration: const BoxDecoration(
@@ -63,6 +64,7 @@ Widget botonEntrar_05(){
     onPressed: (){
 
     },
+    
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.blueAccent,
       foregroundColor: Colors.white,

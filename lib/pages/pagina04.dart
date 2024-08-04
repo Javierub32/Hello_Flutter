@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//* Este Widget spawnea un botón que te dice la hora
 Widget timeButton(){
   return Center(
     child: ElevatedButton(
