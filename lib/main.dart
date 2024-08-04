@@ -32,25 +32,27 @@ class _InicioState extends State<Inicio> {
           backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
         
       ),
-      body:  Center(
-        child: ElevatedButton(
-          child: const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.access_alarm_rounded),
-              SizedBox(
-                width: 10,
-              ),
-              Text("Hora? UwU")
-            ],
-          ),
-
-          onPressed: (){
-            var time = DateTime.now();
-             print(time);
-          },
-        ),
-      ),
+      body:  timeButton(),
     );
   }
 }  
+
+Widget timeButton(){
+  return Center(
+    child: ElevatedButton(
+      onPressed: (){
+        var time = DateTime.now();
+        // ignore: avoid_print
+        print(time);
+      },
+       child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.access_alarm),
+          Text("Hora? UwU"),
+        ],
+       ), 
+     ),
+    );
+}
