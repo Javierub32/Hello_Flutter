@@ -4,6 +4,7 @@ import "package:flutter/material.dart";
 import "package:flutter_application_1/pages/pagina04.dart";
 import 'package:flutter_application_1/pages/pagina05.dart';
 import 'package:flutter_application_1/pages/pagina06.dart';
+import 'package:flutter_application_1/pages/pagina07.dart';
 
 
 void main() => runApp(const MyApp());
@@ -35,7 +36,7 @@ class _InicioState extends State<Inicio> {
         title: const Text("Hola Mundo"),
           backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
-      body:  pagina_06(context),
+      body: Pagina07AlertDialog(),
     );
   }
 }

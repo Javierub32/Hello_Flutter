@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 //* Este Widget cambia de página
-Widget pagina_06(context){ //! Hay que pasar el context para poder hacer el push
+Widget pagina_06CambioDePagina(context){ //! Hay que pasar el context para poder hacer el push
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
