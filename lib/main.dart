@@ -36,7 +36,7 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hola Mundo"),
+        title: const Text("PokeAPI", textAlign: TextAlign.center),
           backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
       body: Pagina10_UsoDeAPI(),

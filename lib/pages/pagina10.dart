@@ -16,7 +16,7 @@ class _Pagina10_UsoDeAPIState extends State<Pagina10_UsoDeAPI> {
   
   //La función es asíncrona porque estamos haciendo una petición a un servidor y puede tardar en responder.
   Future<List<Pokemon>> fetchPokemon() async{  
-    final response = await http.get(Uri.parse("https://pokeapi.co/api/v2/pokemon?limit=10"));
+    final response = await http.get(Uri.parse("https://pokeapi.co/api/v2/pokemon?limit=151"));
     List<Pokemon> pokemons = [];
     
     if (response.statusCode == 200) { //El codigo 200 significa que la petición fue exitosa.
@@ -29,11 +29,8 @@ class _Pagina10_UsoDeAPIState extends State<Pagina10_UsoDeAPI> {
         String referenciaPokemon = pokemon['url'];
         String pokemonImageUrl = await fetchPokemonImageUrl(referenciaPokemon);
 
-        Pokemon pokemontemporal = Pokemon(name: nombrePokemon, urlImagen: pokemonImageUrl);
+        Pokemon pokemontemporal = Pokemon(name: capitalizeFirstLetter(nombrePokemon), urlImagen: pokemonImageUrl);
         pokemons.add(pokemontemporal);
-
-        //TODO: Eliminar
-        print('Nombre: $nombrePokemon - Imagen: $pokemonImageUrl');
       }
 
     } else {
@@ -47,14 +44,52 @@ class _Pagina10_UsoDeAPIState extends State<Pagina10_UsoDeAPI> {
   void initState(){
     super.initState();
     _listadoPokemons = fetchPokemon();
-    _listadoPokemons.ignore(); //! Eliminar
   }
    
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Pagina 10 - Uso de API'),
+      child: FutureBuilder(
+        future: _listadoPokemons,
+        //El snapshot es un objeto que contiene la información de la petición.
+        //La palabra snapshot es una convención, puede llamarse de otra forma.
+        builder: (context, snapshot) {
+          if(snapshot.hasData){
+            return ListView(
+              //Sin el !, el compilador no sabe que snapshot.data es una lista de Pokemon.
+              children: _listPokemon(snapshot.data!),
+            );
+          } else if(snapshot.hasError){
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return CircularProgressIndicator();
+          }
+        },
+      ),
     );
+  }
+
+  List<Widget> _listPokemon(List<Pokemon> data){
+    List<Widget> pokemons = [];
+    
+    for (var pokemon in data) {
+      pokemons.add(
+        Card(
+          child: ListTile(
+            title: Text(pokemon.name),
+            leading: Image.network(pokemon.urlImagen),
+          ),
+        ),
+      );
+    }
+    
+
+    return pokemons;
+  }
+
+  String capitalizeFirstLetter(String s) {
+    if (s.isEmpty) return s;
+    return s[0].toUpperCase() + s.substring(1);
   }
 }
 
