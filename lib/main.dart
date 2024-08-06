@@ -12,6 +12,7 @@ import 'package:flutter_application_1/pages/pagina11.dart';
 import 'package:flutter_application_1/pages/pagina12.dart';
 import 'package:flutter_application_1/pages/pagina13.dart';
 import 'package:flutter_application_1/pages/pagina14.dart';
+import 'package:flutter_application_1/pages/pagina15.dart';
 
 
 void main() => runApp(const MyApp());
@@ -48,10 +49,10 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("PokeAPI", textAlign: TextAlign.center),
+        title: const Text("HomePage", textAlign: TextAlign.start),
         backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
-      body: Pagina14_PersistenciaDeDatos(),
+      body: Pagina15_PasarDatosAWidget(),
 
 
 
