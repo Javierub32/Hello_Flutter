@@ -1,5 +1,10 @@
 // ignore_for_file: unused_import
+import 'package:crud_firebase/pages/pagina16.dart';
 import "package:flutter/material.dart";
+
+//Importaciones de firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'package:crud_firebase/pages/pagina04.dart';
 import 'package:crud_firebase/pages/pagina05.dart';
@@ -21,7 +26,13 @@ import 'package:crud_firebase/pages/pagina14.dart';
 import 'package:crud_firebase/pages/pagina15.dart';
 
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -58,7 +69,7 @@ class _InicioState extends State<Inicio> {
         title: const Text("HomePage", textAlign: TextAlign.start),
         backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
-      body: Pagina15_PasarDatosAWidget(),
+      body: Pagina16_UsoDeFirebase01(),
 
 
 
