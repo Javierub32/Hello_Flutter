@@ -9,6 +9,7 @@ import 'package:flutter_application_1/pages/pagina08.dart';
 import 'package:flutter_application_1/pages/pagina09.dart';
 import 'package:flutter_application_1/pages/pagina10.dart';
 import 'package:flutter_application_1/pages/pagina11.dart';
+import 'package:flutter_application_1/pages/pagina12.dart';
 
 
 void main() => runApp(const MyApp());
@@ -34,11 +35,13 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
+  /*
   List<Widget> _paginas = <Widget>[
     Pagina11_PaginaHome(),
     Pagina11_PaginaUser(),
   ];
   int _selectedIndex = 0;
+  */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +49,11 @@ class _InicioState extends State<Inicio> {
         title: const Text("PokeAPI", textAlign: TextAlign.center),
           backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
-      body: _paginas[_selectedIndex],
+      body: Pagina12_CuadradoEsquizofrenico(),
 
+
+
+      /*
       bottomNavigationBar: BottomNavigationBar(
       onTap: (value) {
         setState(() {
@@ -67,6 +73,7 @@ class _InicioState extends State<Inicio> {
         ),
       ]
       ),
+      */
     );
   }
 }
