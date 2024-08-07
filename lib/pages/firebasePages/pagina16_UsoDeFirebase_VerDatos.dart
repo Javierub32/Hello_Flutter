@@ -65,8 +65,9 @@ class _pagina16_UsoDeFirebase_VerDatosState extends State<pagina16_UsoDeFirebase
                               ),
 
                               TextButton(
-                                onPressed: (){
-                                  //Navigator.pop(context);
+                                onPressed: () async{
+                                  await deleteUser(respuesta.data?[index]['id']).then((_) => Navigator.pop(context));
+                                  setState(() {});
                                 },
                                 child: Text("Sí", style: TextStyle(color: Colors.red)),
                               ),

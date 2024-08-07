@@ -40,3 +40,10 @@ Future<void> updateUser(String nombre, String id) async {
     'nombre': nombre,
   });
 }
+
+//Eliminar un usuario
+Future<void> deleteUser(String id) async {
+  CollectionReference usersCollection = db.collection('users');
+
+  await usersCollection.doc(id).delete();
+}
