@@ -17,3 +17,11 @@ Future<List> getUsers() async {
   //await Future.delayed(Duration(seconds: 5));
   return users;
 }
+
+Future<void> addUser(String nombre) async {
+  CollectionReference usersCollection = db.collection('users');
+
+  await usersCollection.add({
+    'nombre': nombre,
+  });
+}

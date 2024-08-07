@@ -1,5 +1,7 @@
 // ignore_for_file: unused_import
-import 'package:crud_firebase/pages/pagina16.dart';
+import 'package:crud_firebase/pages/firebasePages/pagina16_UsoDeFirebase_VerDatos.dart';
+import 'package:crud_firebase/pages/firebasePages/pagina17_UsoDeFireBase_AnyadirDatos.dart';
+import 'package:crud_firebase/pages/firebasePages/pagina18_UsoDeFirebase_ActualizarDatos.dart';
 import "package:flutter/material.dart";
 
 //Importaciones de firebase
@@ -39,14 +41,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Mi App",
-      home: Inicio(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const pagina16_UsoDeFirebase_VerDatos(),
+        "/add": (context) => const pagina17_UsoDeFireBase_AnyadirDatos(),
+        "/edit": (context) => const pagina18_UsoDeFirebase_ActualizarDatos(),
+      },
     );
   }
 }
 
+//! En esta clase, podemos probar todas las páginas que hemos creado hasta la 16 incluida
+//! Para ello, solo tenemos que cambiar el widget que se muestra en la propiedad home de 
+//! MaterialApp por Inicio y meter en el body del Inicio el widget que queramos probar
 class Inicio extends StatefulWidget {
   const Inicio({super.key});
 
@@ -69,7 +79,7 @@ class _InicioState extends State<Inicio> {
         title: const Text("HomePage", textAlign: TextAlign.start),
         backgroundColor: const Color(0x2F0084FF), // Cambiar el color de fondo aquí
       ),
-      body: Pagina16_UsoDeFirebase01(),
+      body: pagina16_UsoDeFirebase_VerDatos(),
 
 
 
