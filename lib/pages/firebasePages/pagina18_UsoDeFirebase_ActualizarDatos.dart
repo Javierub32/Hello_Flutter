@@ -16,6 +16,7 @@ class _pagina18_UsoDeFirebase_ActualizarDatosState extends State<pagina18_UsoDeF
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context)!.settings.arguments as Map;
     _nombreController.text = arguments['nombre'];
+    String _id = arguments['id'];
 
     return Scaffold(
         appBar: AppBar(
@@ -36,7 +37,7 @@ class _pagina18_UsoDeFirebase_ActualizarDatosState extends State<pagina18_UsoDeF
 
             ElevatedButton(
               onPressed: () async{
-                await addUser(_nombreController.text).then((_) => Navigator.pop(context));
+                await updateUser(_nombreController.text, _id).then((_) => Navigator.pop(context));
               }, 
               
               child: const Text("Actualizar"),

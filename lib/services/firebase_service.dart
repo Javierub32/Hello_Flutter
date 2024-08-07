@@ -9,19 +9,34 @@ Future<List> getUsers() async {
 
   QuerySnapshot usersQuery = await usersCollection.get();
 
-  usersQuery.docs.forEach((element) {
-    users.add(element.data());
-  });
+  for (var doc in usersQuery.docs) {
+    final Map data = doc.data() as Map;
+    final user ={
+      'nombre': data['nombre'],
+      'id': doc.id,
+    };
+    users.add(user);
+  }
   
   //Simulamos una demora de 5 segundos
   //await Future.delayed(Duration(seconds: 5));
   return users;
 }
 
+//Añadir un usuario
 Future<void> addUser(String nombre) async {
   CollectionReference usersCollection = db.collection('users');
 
   await usersCollection.add({
+    'nombre': nombre,
+  });
+}
+
+//Actualizar un usuario
+Future<void> updateUser(String nombre, String id) async {
+  CollectionReference usersCollection = db.collection('users');
+
+  await usersCollection.doc(id).update({
     'nombre': nombre,
   });
 }

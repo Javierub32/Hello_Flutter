@@ -40,10 +40,40 @@ class _pagina16_UsoDeFirebase_VerDatosState extends State<pagina16_UsoDeFirebase
                   String user = respuesta.data?[index]['nombre'] ?? 'Unknown';
                   return ListTile(                    
                     title: Text(user, textAlign: TextAlign.center, style: TextStyle(fontSize: 25)),
-                    onTap: () {
-                      Navigator.pushNamed(context, "/edit", arguments: {
+                    onTap: () async {
+                      await Navigator.pushNamed(context, "/edit", arguments: {
                         'nombre': user,
+                        'id': respuesta.data?[index]['id']
                       });
+
+                      setState(() {});
+                    },
+
+                    onLongPress: () {
+                      showDialog(
+                        context: context,
+                        builder: (context){
+                          return AlertDialog(
+                            title: Text("Eliminar Usuario"),
+                            content: Text("Estás seguro de eliminar a $user?"),
+                            actions: [
+                              TextButton(
+                                onPressed: (){
+                                  Navigator.pop(context);
+                                },
+                                child: Text("Cancelar")
+                              ),
+
+                              TextButton(
+                                onPressed: (){
+                                  //Navigator.pop(context);
+                                },
+                                child: Text("Sí", style: TextStyle(color: Colors.red)),
+                              ),
+                            ],
+                          );
+                        } 
+                      );                 
                     },
                   );
                 },
